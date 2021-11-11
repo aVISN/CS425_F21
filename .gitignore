@@ -17,3 +17,7 @@
 
 # allow NGINX html files
 !/var/www/html/**
+
+# allow Django config files
+!/srv/apps/**
+# directory has its own .gitignore file for Django, VirtualEnv, Python files
