@@ -1,0 +1,12 @@
+# ignore root files and root directories
+/*
+/*/
+# but track this file
+!/.gitignore
+# allow root's home dir
+!/root/
+# but not the Desktop in root's home dir
+/root/Desktop/*
+# or any dot files in root's home dir
+/root/.*
+
