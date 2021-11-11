@@ -1,9 +1,12 @@
-(see initial git setup below)
+# (see initial git setup below)
+```
 ################################################################################
 # after initial setup, general git flow = 
 	git status
-	git add .
+	git add . # or directory or filename instead of '.'==all
 	git status
+	# if need to forget add:
+	# git reset, then can add again
 	git commit -m "message"
 	git status
 	git push
@@ -17,13 +20,13 @@
 	git push origin HEAD --force
 ################################################################################
 ################################################################################
+```
+
+# File to test git set up. 
 
 
-File to test git set up. 
-
-
-Git/Github setup: 
-
+# Git/Github setup: 
+```
 apt install git
 
 git config --global user.name "Sarah Skidmore"
@@ -31,8 +34,9 @@ git config --global user.email "obeytheviszla@gmail.com"
 # check
 git config --global user.name
 git congig --global user.email
-
+```
 # check for ssh key
+```
 ls -al ~/.ssh
 # generate ssh key pair
 ssh-keygen -t ed25519 -C "obeytheviszla@gmail.com"
@@ -44,13 +48,17 @@ ssh-add ~/.ssh/id_ed25519
 cat ~/.ssh/id_ed25519.pub
 # test SSH connection to GitHub
 ssh -T git@github.com
+```
 
+# testing git setup with github repository
+```
 cd ~
 mkdir hello_github
 vim hello_github/hello_git.txt
 # add text and save: 
 File to test git set up. 
-
+```
+```
 cd /
 # initialize git 
 git init
@@ -77,8 +85,10 @@ git status
 git remote add origin git@github.com:aVISN/CS425_F21.git
 git push -u origin main
 # check github online repo
+```
 
 # add another file
+```
 vim hello_github/README.txt
 # (created this text file)
 
@@ -93,4 +103,4 @@ git status
 # push (don't need to add origin this time and it is already set as upstream after initial commit above)
 git push
 # check github online repo
-
+```
