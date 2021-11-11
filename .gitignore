@@ -1,12 +1,19 @@
-# ignore root files and root directories
-/*
-/*/
-# but track this file
+# Ignore everything
+*
+# But descend into directories
+!*/
+# track this file
 !/.gitignore
+
 # allow root's home dir
-!/root/
+!/root/**
 # but not the Desktop in root's home dir
 /root/Desktop/*
 # or any dot files in root's home dir
 /root/.*
 
+# allow NGINX config directories
+!/etc/nginx/**
+
+# allow NGINX html files
+!/var/www/html/**
