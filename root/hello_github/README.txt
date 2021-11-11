@@ -1,3 +1,24 @@
+(see initial git setup below)
+################################################################################
+# after initial setup, general git flow = 
+	git status
+	git add .
+	git status
+	git commit -m "message"
+	git status
+	git push
+# to undo a push <WARNING - deletes/modifies local files>
+	git log # find id to push back to 
+	git reset --hard bd287b80b501e0f04793831c6eaecd5d382669e0
+	git push origin HEAD --force
+# to redo an undone push
+	git reflog # find id to push back to
+	git reset --hard bd287b80b501e0f04793831c6eaecd5d382669e0
+	git push origin HEAD --force
+################################################################################
+################################################################################
+
+
 File to test git set up. 
 
 
