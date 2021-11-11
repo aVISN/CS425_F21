@@ -4,6 +4,8 @@
 !*/
 # track this file
 !/.gitignore
+# and the repo readme.md
+!/README.md
 
 # allow root's home dir
 !/root/**
