@@ -22,4 +22,6 @@
 
 # allow Django config files
 !/srv/apps/**
+# except .env file
+/srv/apps/visn/.env
 # directory has its own .gitignore file for Django, VirtualEnv, Python files
