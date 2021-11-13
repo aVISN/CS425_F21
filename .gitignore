@@ -9,8 +9,9 @@
 
 # allow root's home dir
 !/root/**
-# but not the Desktop in root's home dir
+# but not the Desktop or Downloads in root's home dir
 /root/Desktop/*
+/root/Downloads/*
 # or any dot files in root's home dir
 /root/.*
 
