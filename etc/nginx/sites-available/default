@@ -17,7 +17,11 @@
 ##
 
 # Default server configuration
-#
+
+upstream django_hosts { 
+   server 127.0.0.1:9002; 
+} 
+
 server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
@@ -38,22 +42,35 @@ server {
 	#
 	# include snippets/snakeoil.conf;
 
-	root /var/www/html;
+	#root /var/www/html;
 
 	# Add index.php to the list if you are using PHP
-	index index.html index.htm index.nginx-debian.html;
+	#index index.html index.htm index.nginx-debian.html;
 
 	server_name _;
 
 	location / {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
-	}
+		#try_files $uri $uri/ =404;
+            	include            uwsgi_params; 
+            	uwsgi_pass         django_hosts; 
+ 
+            	proxy_redirect     off; 
+            	proxy_set_header   Host $host; 
+            	proxy_set_header   X-Real-IP $remote_addr; 
+            	proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for; 
+            	proxy_set_header   X-Forwarded-Host $server_name; 
+        } 
+        
+	location ^~ /static/  { 
+            root /srv/apps/cs447; 
+ 
+        } 
 
-	location /test {
-		try_files $uri $uri/ $uri.html =404;
-	}
+	#location /test {
+	#	try_files $uri $uri/ $uri.html =404;
+	#}
 
 	# pass PHP scripts to FastCGI server
 	#
