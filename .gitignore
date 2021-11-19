@@ -26,3 +26,10 @@
 # except .env file
 /srv/apps/visn/.env
 # directory has its own .gitignore file for Django, VirtualEnv, Python files
+
+# allow uwsgi config files
+!/etc/uwsgi/**
+
+# allow systemd config files
+!/etc/systemd/system/visn-uwsgi.service
+
