@@ -1,0 +1,14 @@
+[Unit] 
+Description=A VISN uwsgi applicaiton 
+After=network.target 
+ 
+[Service] 
+EnvironmentFile=-/etc/default/visn 
+Type=notify 
+ExecStart=/usr/bin/uwsgi --ini /etc/uwsgi/apps-enabled/visn.ini 
+Restart=always 
+KillSignal=SIGQUIT 
+StandardError=syslog 
+ 
+[Install] 
+WantedBy=multi-user.target
