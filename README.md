@@ -3,6 +3,9 @@
 - Repo structure: 
 ```
 /etc/nginx = NGINX config files
+/etc/uwsgi = uWSGI config files
+/etc/systemd = uWSGI service
+
 /var/www/html = NGINX html files
 
 /srv/apps = VirtualEnv and Django project files
@@ -28,6 +31,8 @@ apt install vim curl tree
 ## 3. See /srv/apps/README.md for VirtualEnv and Django project setup walkthrough
 
 ## 4. See /root/README.md for git and github setup walkthrough and git notes
+
+## 5. See /etc/uwsgi/README.md for uWSGI and NGINX configuration to serve django project
 ---
 
 
