@@ -1,5 +1,44 @@
 # This is where Django projects are stored
 
+# Note: project setup still listed below, but adding notes from discord 
+on current general use tips here (since installation/setup already configured in provided VM)
+
+## * Django is now served through nginx, should be able to view pages in web browser 
+at localhost addresses such as localhost (main page) or localhost/login
+
+## Example: adding a page to the project's pages app:
+
+1. add a template (.html file)
+```bash
+# within the project's pages app at /srv/apps/visn/pages 
+# there is a templates directory that contains the base.html, home.html, and about.html pages
+# can create a new page such as dashboard.html will inherit from base.html, 
+# see how to set up by looking at both base.html and home.html
+```
+2. add a view to the app's views.py file
+```bash
+# create a line in the /srv/apps/visn/pages/views.py file for the new page, 
+# something just like what is used for the home.html page: 
+class HomePageView(TemplateView):
+    template_name = 'home.html'
+```
+3. add url to the app's urls.py file
+```bash
+# create the url mapping in the /srv/apps/visn/pages/urls.py file for the new page, 
+# something like what is used for the about page view: 
+    path('about/', AboutPageView.as_view(), name='about'),
+```
+
+## Note, not everything will be added in pages app! 
+We will want to create apps for other functionalities such as an app for chat 
+and and app for file sharing, but creating a page is a good way to get started
+with using Django
+
+## Other pages or more sophisticated versions of our current templates
+will need to interact with the database through ORM models, this example does
+not go into models, will provide another example to illustrate integration of models
+
+---
 
 # 1. Basic Django installation and project setup: 
 
