@@ -33,6 +33,11 @@ apt install vim curl tree
 ## 4. See /root/README.md for git and github setup walkthrough and git notes
 
 ## 5. See /etc/uwsgi/README.md for uWSGI and NGINX configuration to serve django project
+
+## 6. See /root/hello_github/README.md for walkthrough on setting up personal development branch
+      NOTE: currently on main-S branch, not main branch! 
+      View on github by selecting main-S branch from drop down button or use address:
+      github.com/aVISN/CS425_F21/tree/main-S/root/hello_github
 ---
 
 
