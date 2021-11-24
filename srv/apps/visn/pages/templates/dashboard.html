@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+<!--<link href="home-style.css" rel="stylesheet">-->
+
+{% block content %}
+<body>
+    <div id="main-content" class="row gx-0">
+        <div id="icons" class="col-md-2">
+            <div id="logo" class="icons row align-item-center gx-0">VISN Logo</div>
+            <div id="U-name" class="icons row gx-0">Welcome *NAME*</div>
+            <div class="icons row gx-0">Home</div>
+            <div class="icons row gx-0">Calendar</div>
+            <div class="icons row gx-0">Settings</div>
+            <div class="icons row gx-0">Network</div>
+            <div class="icons row gx-0">Tools</div>
+            <div id="search" class="icons row gx-0">Search <input></input></div>
+        </div>
+        <div id="recent-views" class="col-md-10">
+            <div id="header">
+                <div id="title" class="row gx-0">
+                    <h1>Homepage/Dashboard</h1>
+                </div>    
+            </div>
+            <div id="top-views" class="row gx-0">
+                <div id="left-view" class="col-md-5">
+                    <div id="projects" class="offset-1">
+                        <div class="projects-view-bar row gx-0">
+                            Projects
+                            <div class="col-md-2 offset-4">
+                               <div class="">V1</div>
+                            </div>
+                            <div class="col-md-2">V2</div>
+                        </div>
+                        <div class="row gx-0">
+                            <div class="project col-md-4">
+                                <div class="project-container">P1</div>
+                            </div>
+                            <div class="project col-md-4">
+                                <div class="project-container">P2</div>
+                            </div>
+                            <div class="project col-md-4">
+                                <div class="project-container">P3</div>
+                            </div>
+                        </div>
+                        <div class="row gx-0">
+                            <div class="project col-md-4">
+                                <div class="project-container">P4</div>
+                            </div>
+                            <div class="project col-md-4">
+                                <div class="project-container">P5</div>
+                            </div>
+                            <div class="project col-md-4">
+                                <div class="project-container">P6</div>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+                <div id="right-view" class="col-md-6">
+                    <div id="chat" class="col-md-10 offset-1">
+                        <div class="chat-view-bar row gx-0">
+                           Recent Messages
+                        </div>
+                        <div class="message row gx-0">Recent Message 1</div>
+                        <div class="message row gx-0">Recent Message 2</div>
+                        <div class="message row gx-0">Recent Message 3</div>
+                        <div class="message row gx-0">Recent Message 4</div>
+                        <div class="message row gx-0">Recent Message 5</div>
+                        <div class="message row gx-0">Recent Message 6</div>
+                        <div class="message row gx-0">Recent Message 7</div>  
+                    </div>
+                </div>
+            </div>
+            <div id="bottom-view" class="row gx-0">
+                <div id="files" class="col-md-10">
+                    <div class="files-view-bar row gx-0">
+                        Recent Files
+                        <div class=" col-md-1 offset-5">V1</div>
+                        <div class=" col-md-1">V2</div>
+                    </div>
+                    <div class="file row gx-0">File 1</div>
+                    <div class="file row gx-0">File 2</div>
+                    <div class="file row gx-0">File 3</div>
+                    <div class="file row gx-0">File 4</div>
+                    <div class="file row gx-0">File 5</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div id="footer" class="row"></div>
+    
+</body>
+{% endblock content %}
