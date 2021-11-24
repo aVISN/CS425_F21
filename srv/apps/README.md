@@ -21,6 +21,7 @@ at localhost addresses such as localhost (main page) or localhost/login
 # something just like what is used for the home.html page: 
 class HomePageView(TemplateView):
     template_name = 'home.html'
+```
 3. add url to the app's urls.py file
 ```bash
 # create the url mapping in the /srv/apps/visn/pages/urls.py file for the new page, 
