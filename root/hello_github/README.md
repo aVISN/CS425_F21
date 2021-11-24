@@ -42,4 +42,36 @@ git status
 git commit -m "Testing subsequent pushes to branch after initial upstream set "
 git push 
 ```
+```bash
+# (optional) pulling from main to branch
+# Example: updated repo README in main and merged updated main with my branch
+# switch to main branch to update repo README
+git checkout main
+git status
 
+# update repo README
+cd /
+vim README.md
+
+# push to main branch
+git status
+git add .
+git status
+git commit -m "Updated to include branch creation info"
+# since we have been working in different branch, be sure to set upstream with -u option
+git push -u origin main
+git status
+
+# switch back to personal development branch
+git checkout main-S
+git status
+# pull updates from main branch into local development branch
+git fetch origin main
+git pull origin main
+git status
+# push updates to development branch to remote 
+git push -u origin main-S
+git status
+# have now merged updates from main branch into personal development branch
+# does not modify/update main branch in any way
+```
