@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 <!--<link href="home-style.css" rel="stylesheet">-->
 
@@ -6,7 +7,7 @@
 <body>
     <div id="main-content" class="row gx-0">
         <div id="icons" class="col-md-2">
-            <div id="logo" class="icons row align-item-center gx-0">VISN Logo</div>
+            <div id="logo" class="icons row align-item-center gx-0"><img src="{% static 'Logo_Rev1.png' %}" /></div>
             <div id="U-name" class="icons row gx-0">Welcome *NAMEEE*</div>
             <div class="icons row gx-0">Home</div>
             <div class="icons row gx-0">Calendar</div>
