@@ -3,7 +3,7 @@ from .views import LoginPageView, HomePageView, AboutPageView, RegisterView, Das
 
 urlpatterns = [
     path('', LoginPageView.as_view(), name='home'),
-    path('', HomePageView.as_view(), name='home'),
+#   path('', HomePageView.as_view(), name='home'),
     path('', include('django.contrib.auth.urls')),
     path('about/', AboutPageView.as_view(), name='about'),
     path('register/', RegisterView.as_view(), name='register'),
