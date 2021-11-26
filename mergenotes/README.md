@@ -18,12 +18,14 @@
 - /srv/apps/visn/pages/urls.py
 
 ### issues: 
-1. site no longer being served with nginx/uwsgi at localhost (only accessible with django dev server at localhost:8000)
+~~1. site no longer being served with nginx/uwsgi at localhost (only accessible with django dev server at localhost:8000)~~
+	resolved, I just needed to restart nginx/uwsgi
 2. login form inaccessible, no longer signifies login success or redirects to custom output based on user 
 3. logout functionality removed
-4. errors accessing .css resources
+~~4. errors accessing .css resources~~
+	resolved, updated static files config for pages app
 ---
-
+~~
 - nginx issue: when attempting to access site at localhost with web browser, fails, reports error: 
  	```
 	NoReverseMatch at /
@@ -64,7 +66,7 @@
     		register/ [name='register']
 
 	The current path, dashboard, didn’t match any of these.
-	```
+~~	```
 ---
 Since can't interact with site with nginx, use Django's dev server: 
 ```
