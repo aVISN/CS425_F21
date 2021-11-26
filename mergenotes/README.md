@@ -77,7 +77,6 @@ cd visn
 ```
 ---
 - using dev server: issues with site navigation, accessing .css resources, no longer indicates successful login, no longer allows user log out, no longer customizes ouput based on user
-################################################################################
 	```
 	page at localhost:8000 is titled "Login" and has a button to "Log in" 
         but is not the login form page, does have link to register
