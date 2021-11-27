@@ -6,9 +6,9 @@ urlpatterns = [
 #   path('', HomePageView.as_view(), name='home'),
     path('', include('django.contrib.auth.urls')),
     path('about/', AboutPageView.as_view(), name='about'),
-    path('projects/', ProjectsPageView.as_view(), name='about'),
-    path('files/', FilesPageView.as_view(), name='about'),
-    path('chat/', ChatPageView.as_view(), name='about'),
+    path('projects/', ProjectsPageView.as_view(), name='projects'),
+    path('files/', FilesPageView.as_view(), name='files'),
+    path('chat/', ChatPageView.as_view(), name='chat'),
     path('register/', RegisterView.as_view(), name='register'),
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
 ]
