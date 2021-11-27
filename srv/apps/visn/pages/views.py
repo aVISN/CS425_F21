@@ -24,7 +24,7 @@ class ProjectsPageView(TemplateView):
     template_name = 'projects.html'
     
 class FilesPageView(TemplateView):
-    template_name = 'Files.html'
+    template_name = 'files.html'
     
 class ChatPageView(TemplateView):
     template_name = 'chat.html'
