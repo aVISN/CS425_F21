@@ -19,3 +19,12 @@ class RegisterView(CreateView):
 
 class DashboardView(TemplateView):
     template_name = 'dashboard.html'
+    
+class ProjectsPageView(TemplateView):
+    template_name = 'projects.html'
+    
+class FilesPageView(TemplateView):
+    template_name = 'Files.html'
+    
+class ChatPageView(TemplateView):
+    template_name = 'chat.html'
