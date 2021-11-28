@@ -33,3 +33,5 @@
 # allow systemd config files
 !/etc/systemd/system/visn-uwsgi.service
 
+# allow mergenotes directory
+!/mergenotes/**
