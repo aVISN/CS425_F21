@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import HomePageView, AboutPageView, ProjectsPageView, FilesPageView, ChatPageView, RegisterView, DashboardView
+from .views import AboutPageView, ProjectsPageView, FilesPageView, ChatPageView, RegisterView, DashboardView #HomePageView
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
