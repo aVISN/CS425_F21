@@ -1,5 +1,9 @@
+{% extends 'base.html' %}
 {% load static %}
+ 
+{% block content %}
 
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,23 +28,17 @@
             <div id="search" class="icons row gx-0">Search <input></input></div>
         </div>
         <div id="recent-views" class="col-md-10">
+=======
+{% include 'header.html' %}
+{% include 'sidebar.html' %}
+>>>>>>> 59bd154b06f2545cdda61c9c7378d9f72e4bfa73
 
-            {% block content %}
-
-            <div id="header">
-                <div id="title" class="row gx-0">
-                    <h1>Homepage/Dashboard</h1>
-                </div>    
-            </div>
+         <div id="recent-views" class="col-md-10"> 
             <div id="top-views" class="row gx-0">
                 <div id="left-view" class="col-md-5">
                     <div id="projects" class="offset-1">
                         <div class="projects-view-bar row gx-0">
-                            Projects
-                            <div class="col-md-2 offset-4">
-                               <div class="">V1</div>
-                            </div>
-                            <div class="col-md-2">V2</div>
+			    <h4>Example heading <span class="badge bg-secondary">+</span></h4>
                         </div>
                         <div class="row gx-0">
                             <div class="project col-md-4">
@@ -66,27 +64,47 @@
                         </div>   
                     </div>
                 </div>
-                <div id="right-view" class="col-md-6">
-                    <div id="chat" class="col-md-10 offset-1">
-                        <div class="chat-view-bar row gx-0">
-                           Recent Messages
-                        </div>
-                        <div class="message row gx-0">Recent Message 1</div>
-                        <div class="message row gx-0">Recent Message 2</div>
-                        <div class="message row gx-0">Recent Message 3</div>
-                        <div class="message row gx-0">Recent Message 4</div>
-                        <div class="message row gx-0">Recent Message 5</div>
-                        <div class="message row gx-0">Recent Message 6</div>
-                        <div class="message row gx-0">Recent Message 7</div>  
+             <!-- ********************************* -->
+            <div id="right-view" class="col-md-6">
+               <div id="chat" class="col-md-10 offset-1">
+             <div class="card" style="width: 18rem;">
+             <div class="card-header">Recent Chat</div>
+                <ul class="list-group list-group-flush">
+                   <li class="list-group-item">
+        	      <blockquote class="blockquote mb-0">
+      		 	   <p>Hopefully Short message</p>
+      		   	   <footer class="blockquote-footer">User Name <cite title="Source Title">Project Name</cite></footer>
+    		      </blockquote>
+		   </li>
+		   <li class="list-group-item">
+                      <blockquote class="blockquote mb-0">
+                           <p>Beginning of a really long message ...</p>
+                           <footer class="blockquote-footer">User Name <cite title="Source Title">Project Name</cite></footer>
+                      </blockquote>
+                   </li>
+		   <li class="list-group-item">
+                      <blockquote class="blockquote mb-0">
+                           <p>Another  message ...</p>
+                           <footer class="blockquote-footer">User Name <cite title="Source Title">Project Name</cite></footer>
+                      </blockquote>
+                   </li>
+		   <li class="list-group-item">
+                      <blockquote class="blockquote mb-0">
+                           <p>One More Message ...</p>
+                           <footer class="blockquote-footer">User Name <cite title="Source Title">Project Name</cite></footer>
+                      </blockquote>
+                   </li>
+                   
+                </ul>
+             </div>
+             <!-- ********************************* -->
                     </div>
                 </div>
             </div>
             <div id="bottom-view" class="row gx-0">
                 <div id="files" class="col-md-10">
                     <div class="files-view-bar row gx-0">
-                        Recent Files
-                        <div class=" col-md-1 offset-5">V1</div>
-                        <div class=" col-md-1">V2</div>
+                       <h4>Recent File <span class="badge bg-secondary offset-5">+</span></h4>
                     </div>
                     <div class="file row gx-0">File 1</div>
                     <div class="file row gx-0">File 2</div>
@@ -95,14 +113,5 @@
                     <div class="file row gx-0">File 5</div>
                 </div>
             </div>
-        
-            {% endblock content %}    
-            
-        </div>
-    </div>
-    <div id="footer" class="row"></div>
-    
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
-</html>
+         </div>
+{% endblock content %}
