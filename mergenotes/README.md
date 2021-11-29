@@ -1,14 +1,3 @@
-# This directory for notes regarding branch merges, issues from merges, bug fixes. 
-
-## Add file descriptions here: 
-
-*(once resolved, add notes and archive issues by # so that this doc is live issues only.
- keep number, name, and add comment that is resolved in this doc, 
- but move description of issue to new file named by issue number and resolution date, 
- such as 1_11.26.21.md once resolved)* 
-
----
-
 ## 1. commit merged into main from main-D: 
     11/25/21 "got login first and home to go to dashboard (new base) #6"
 
@@ -18,12 +7,19 @@
 - /srv/apps/visn/pages/urls.py
 
 ### issues: 
-1. site no longer being served with nginx/uwsgi at localhost (only accessible with django dev server at localhost:8000)
-2. login form inaccessible, no longer signifies login success or redirects to custom output based on user 
-3. logout functionality removed
-4. errors accessing .css resources
----
 
+<s>1. site no longer being served with nginx/uwsgi at localhost (only accessible with django dev server at localhost:8000)</s>
+
+> resolved, I just needed to restart nginx/uwsgi
+
+2. login form inaccessible, no longer signifies login success or redirects to custom output based on user 
+
+3. logout functionality removed
+
+<s>4. errors accessing .css resources</s>
+> resolved, updated static files config for pages app
+---
+<s>
 - nginx issue: when attempting to access site at localhost with web browser, fails, reports error: 
  	```
 	NoReverseMatch at /
@@ -65,7 +61,10 @@
 
 	The current path, dashboard, didn’t match any of these.
 	```
+</s>
+
 ---
+
 Since can't interact with site with nginx, use Django's dev server: 
 ```
 cd /srv/apps
