@@ -5,6 +5,17 @@
 {% include 'header.html' %}
 {% include 'sidebar.html' %}
 
-<div class="col-md-10" style="text-align:center;padding-top:100px;">**List of Files Webpage**</div>
+<div class="col-md-10">
+  <h2>**List of Files Webpage**</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="upload">
+    <button type="submit">Upload file</button>
+  </form>
+  
+  {% if url %}
+    <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>
+  {% endif %}
+</div> 
 
 {% endblock content %}

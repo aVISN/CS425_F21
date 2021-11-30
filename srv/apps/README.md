@@ -1,5 +1,84 @@
 # This is where Django projects are stored
 
+# File sharing page development process 
+
+Example of development steps from simple page to function based views to generic class-based views that uses models and forms. 
+
+## 1. Setup basic view, url, template: 
+
+Starting with a function based view lets us figure out the logic. We'll eventually turn this into a generic class-based view. Also setup media directory for uploaded files and configured to serve with nginx. 
+
+vim pages/views.py: 
+```
+from django.core.files.storage import FileSystemStorage
+
+#class FilesPageView(TemplateView):
+#    template_name = 'files.html'
+
+def files(request):
+    context = {}
+    if request.method == 'POST':
+        uploaded_file = request.FILES['upload']
+        f = FileSystemStorage()
+        name = f.save(uploaded_file.name, uploaded_file)
+        context['url'] = f.url(name)
+    return render(request, 'files.html', context)
+```
+
+then we need to update urls.py:
+```
+from .views import ... #HomePageView, FilesPageView, (commented out FilesPageView for now)
+from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+
+# update path view: 
+#    path('files/', FilesPageView.as_view(), name='files'),
+    path('files/', views.files, name='files'),
+
+# after urlpatterns list, add: 
+# for use in development only, need to update for production:
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+```
+
+update files.html: 
+```
+<!-- removed div style -->
+<div class="col-md-10"> 
+  
+  <h2>**List of Files Webpage**</h2>
+  
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="upload">
+    <button type="submit">Upload file</button>
+  </form>
+  
+  {% if url %}
+    <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>
+  {% endif %}
+
+</div> 
+```
+
+files uploaded by users are called "media" by Django, set media root/url:
+vim visn/visn/settings.py
+```
+MEDIA_URL = '/files/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+```
+
+update nginx to serve media files
+vim /etc/nginx/sites-available/default:
+```
+	location /media/ { 
+            alias /srv/apps/visn/media/; 
+        } 
+```
+---
+
+
 # Note: project setup still listed below, but adding notes from discord 
 on current general use tips here (since installation/setup already configured in provided VM)
 
