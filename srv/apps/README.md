@@ -77,6 +77,142 @@ vim /etc/nginx/sites-available/default:
         } 
 ```
 ---
+## 2. Adding a model and form, create upload page / file list page
+
+Create a model to store file infomation in the database: 
+pages/models.py
+```
+from django.db import models
+
+# Create your models here.
+
+class Upload(models.Model):
+    description = models.CharField(max_length=100)
+    comments = models.TextField(blank=True)
+    filename = models.FileField(upload_to='')
+
+    def __str__(self):
+        return self.description
+```
+
+After changing models need to makemigrations and migrate to db:
+```
+./manage.py makemigrations
+./manage.py migrate
+```
+
+Create a form for users to upload files / store info to model in db: 
+/pages/forms.py
+```
+from django import forms
+
+from .models import Upload
+
+class UploadForm(forms.ModelForm):
+    class Meta: 
+        model = Upload
+        fields = ('description', 'comments', 'filename')
+```
+
+Update views to use model and form:
+pages/views.py
+```
+from django.shortcuts import render, redirect
+...
+
+from .forms import UploadForm
+from .models import Upload
+
+...
+
+def files(request):
+    files = Upload.objects.all()
+    return render(request, 'files.html', {
+        'files': files
+    })
+
+def upload(request):
+    if request.method == 'POST':
+        upload = UploadForm(request.POST, request.FILES)
+        if upload.is_valid():
+            upload.save()
+            return redirect('files')
+    else: 
+        upload = UploadForm()
+    return render(request, 'upload.html', {
+        'form': upload
+    })
+```
+
+Update files page ( -> list of files)
+pages/templates/files.html: 
+```
+  <h2>**List of Files Webpage**</h2>
+
+  <p>
+    <a href="{% url 'upload' %}" class="btn btn-success">Upload file</a>
+  </p>
+
+
+  <table class="table table-hover table-responsive p-4">
+    <thead>
+      <tr>
+        <th style="width: 30%">Description</th>
+        <th style="width: 40%">Comments</th>
+        <th style="width: 5%">Download</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for file in files %}
+        <tr>
+          <td>{{ file.description }}</td>
+          <td>{{ file.comments }}</td>
+          <td>
+            <a href="{{ file.filename.url }}" class="btn btn-success" target="_blank">
+              {{ file.filename }}
+            </a>
+          </td>
+        <tr>
+      {% endfor %}
+    </tbody>
+  </table>
+```
+
+Create upload form page: 
+pages/templates/upload.html
+```
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+{% include 'header.html' %}
+{% include 'sidebar.html' %}
+
+<div class="col-md-10 p-5" >
+  
+  <h2>**Upload**</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit">Upload file</button>
+  </form>
+
+</div> 
+
+{% endblock content %}
+```
+
+Add upload page to urls
+pages/urls.py
+```
+    path('files/upload/', views.upload, name='upload'), 
+```
+
+---
+---
+
+
 
 
 # Note: project setup still listed below, but adding notes from discord 

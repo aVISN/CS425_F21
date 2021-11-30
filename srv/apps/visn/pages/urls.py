@@ -16,6 +16,7 @@ urlpatterns = [
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
 #    path('files/', FilesPageView.as_view(), name='files'),
     path('files/', views.files, name='files'),
+    path('files/upload/', views.upload, name='upload'),
 ]
 
 if settings.DEBUG:
