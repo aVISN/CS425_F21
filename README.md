@@ -117,7 +117,7 @@ visn site user:
     ```
     There are already pages configured for Projects, Files, and Chat. If you wanted to update the html for the Chat page, you would work on the file /srv/apps/visn/pages/templates/chat.html
 
-    Do not delete what is already there. Each page inherits a base file, header, and sidebar. Put your code above the {% endblock content %} tag. Note, you should not add code such as <!DOCTYPE html>...<head>... everthing above the <body> tag is already accounted for in the base template - and the page footer comes after the {% endblock content %}, we only need to add the main content body to each of the pages. 
+    Do not delete what is already there. Each page inherits a base file, header, and sidebar. Put your code above within the div column tag (i.e. replace **List of Files Webpage** with your html). Note, you should not add code such as <!DOCTYPE html>...<head>... everthing above the <body> tag is already accounted for in the base template - and the page footer comes after the {% endblock content %}, we only need to add the main content body to each of the pages. 
     
     ```bash
     # add something to chat.html, save 
