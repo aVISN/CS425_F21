@@ -48,10 +48,11 @@ div
 {
     justify-content: center;
 
-    height:150px;
+
+    max-width:100%;
+    height:auto;
     color:#000;
     background-color: #fff;
-
     border: 1px #000 solid;
 }
 #top-views
