@@ -65,7 +65,10 @@ server {
         
 	location /static/ { 
             alias /srv/apps/visn/static/; 
- 
+        }
+
+	location /media/ { 
+            alias /srv/apps/visn/media/; 
         } 
 
 	#location /test {

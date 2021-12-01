@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+{% include 'header.html' %}
+{% include 'sidebar.html' %}
+
+<div class="col-md-10 p-5">
+  
+  <h2>**Upload**</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit">Upload file</button>
+  </form>
+
+</div> 
+
+{% endblock content %}
