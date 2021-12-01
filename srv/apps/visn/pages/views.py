@@ -1,3 +1,8 @@
+# docs:
+# function-based views: https://docs.djangoproject.com/en/3.2/topics/http/views/
+# class-based views: https://docs.djangoproject.com/en/3.2/ref/class-based-views/
+# classy class-based views: https://ccbv.co.uk/
+
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, CreateView, ListView
 from django.contrib.auth.forms import UserCreationForm
@@ -9,11 +14,12 @@ from .models import Upload
 #class HomePageView(TemplateView):
 #    template_name = 'home.html'
 
-class AboutPageView(TemplateView):
-    template_name = 'about.html'
+#class AboutPageView(TemplateView):
+#    template_name = 'about.html'
 
 class RegisterView(CreateView):
     form_class = UserCreationForm
+    # generic class based views need reverse_lazy instead of reverse for urls
     success_url = reverse_lazy('login')
     template_name = 'registration/register.html'
 

@@ -1,16 +1,28 @@
-{% extends 'base.html' %}
-{% load crispy_forms_tags %}
+<!-- registration form page -->
 
+{% extends 'base.html' %}
+
+<!-- https://django-crispy-forms.readthedocs.io/en/latest/ -->
+{% load crispy_forms_tags %}
 
 {% block content %}
 
-<h2>Create an Account</h2>
-<form method="POST">
-  {% csrf_token %}
-  {{ form|crispy }}
-  <p>Already have an account? <a href="/login">Log In</a></p>
-  <button type="submit">Register</button>
-</form>
+  <h2>Create an Account</h2>
+
+  <form method="POST">
+
+    <!-- Cross Site Request Forgery: https://docs.djangoproject.com/en/3.2/ref/csrf/ -->
+    {% csrf_token %}
+
+    {{ form|crispy }}
+
+    <p>Already have an account? <a href="/login">Log In</a></p>
+    
+    <button type="submit">Register</button>
+
+  </form>
 
 {% endblock content %}
+
+
 
