@@ -12,8 +12,6 @@
 
   <div class="col-md-10 p-5">
     
-    <h2>**Upload**</h2>
-
     <form method="post" enctype="multipart/form-data">
 
       <!-- Cross Site Request Forgery: https://docs.djangoproject.com/en/3.2/ref/csrf/ -->
@@ -21,7 +19,7 @@
 
       {{ form|crispy }}
 
-      <button type="submit">Upload file</button>
+      <button type="submit" class="btn btn-success btn-lg">Upload file</button>
 
     </form>
 
