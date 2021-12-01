@@ -1,3 +1,7 @@
+# system wide ignore config to select directories tracked by git
+# add directories to allow git tracking
+# docs: https://git-scm.com/docs/gitignore
+
 # Ignore everything
 *
 # But descend into directories
@@ -7,6 +11,7 @@
 # and the repo readme.md
 !/README.md
 
+
 # allow root's home dir
 !/root/**
 # but not the Desktop or Downloads in root's home dir
@@ -15,23 +20,25 @@
 # or any dot files in root's home dir
 /root/.*
 
+
 # allow NGINX config directories
 !/etc/nginx/**
-
 # allow NGINX html files
 !/var/www/html/**
 
+
 # allow Django config files
 !/srv/apps/**
-# except .env file
+# except .env file, stores django secret key
 /srv/apps/visn/.env
-# directory has its own .gitignore file for Django, VirtualEnv, Python files
+# apps directory has its own .gitignore file generated for Django, VirtualEnv, Python files:
+# /srv/apps/.gitignore
 
 # allow uwsgi config files
 !/etc/uwsgi/**
-
 # allow systemd config files
 !/etc/systemd/system/visn-uwsgi.service
+
 
 # allow mergenotes directory
 !/mergenotes/**
