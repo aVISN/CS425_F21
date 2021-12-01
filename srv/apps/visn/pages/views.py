@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, ListView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.core.files.storage import FileSystemStorage
@@ -26,21 +26,13 @@ class ProjectsPageView(TemplateView):
 class ChatPageView(TemplateView):
     template_name = 'chat.html'
 
-#class FilesPageView(TemplateView):
-#    template_name = 'files.html'
+class FilesPageView(ListView):
+    model = Upload
+    template_name = 'files.html'
+    context_object_name = 'files'
 
-def files(request):
-    files = Upload.objects.all()
-    return render(request, 'files.html', { 'files': files })
-
-def upload(request):
-    if request.method == 'POST':
-        upload = UploadForm(request.POST, request.FILES)
-        if upload.is_valid():
-            upload.save()
-            return redirect('files')
-    else: 
-        upload = UploadForm()
-    return render(request, 'upload.html', { 'form': upload })
-
-
+class UploadFilesView(CreateView):
+    model = Upload
+    form_class = UploadForm
+    success_url = reverse_lazy('files')
+    template_name = 'upload.html'

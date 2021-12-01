@@ -210,10 +210,37 @@ pages/urls.py
 ```
 
 ---
+## 3. Update from function based views to generic class based views
+
+Update function based to generic class based views: 
+pages/views.py
+```    
+from django.views.generic import TemplateView, CreateView, ListView
+...
+
+class FilesPageView(ListView):
+    model = Upload
+    template_name = 'files.html'
+    context_object_name = 'files'
+
+class UploadFilesView(CreateView):
+    model = Upload
+    form_class = UploadForm
+    success_url = reverse_lazy('files')
+    template_name = 'upload.html'
+```
+
+update urls to use new views
+pages/urls.py
+```
+from .views import AboutPageView, ProjectsPageView, ChatPageView, RegisterView, DashboardView, FilesPageView, UploadFilesView #HomePageView, 
+...
+
+    path('files/', FilesPageView.as_view(), name='files'),
+    path('files/upload/', UploadFilesView.as_view(), name='upload'),
+```
+
 ---
-
-
-
 
 # Note: project setup still listed below, but adding notes from discord 
 on current general use tips here (since installation/setup already configured in provided VM)

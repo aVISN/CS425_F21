@@ -5,15 +5,15 @@
 {% include 'header.html' %}
 {% include 'sidebar.html' %}
 
-<div class="col-md-10">
+<div class="col-md-10 p-5">
   <h2>**List of Files Webpage**</h2>
 
   <p>
-    <a href="{% url 'upload' %}" class="btn btn-success">Upload file</a>
+    <a href="{% url 'upload' %}" class="btn btn-success btn-lg">Upload file</a>
   </p>
 
 
-  <table class="table table-hover table-responsive p-4">
+  <table class="table table-hover table-responsive">
     <thead>
       <tr>
         <th style="width: 30%">Description</th>
@@ -27,7 +27,7 @@
           <td>{{ file.description }}</td>
           <td>{{ file.comments }}</td>
           <td>
-            <a href="{{ file.filename.url }}" class="btn btn-success" target="_blank">
+            <a href="{{ file.filename.url }}" class="btn btn-success btn-sm" target="_blank">
               {{ file.filename }}
             </a>
           </td>
