@@ -7,20 +7,24 @@
 
 {% block content %}
 
-  <h2>Create an Account</h2>
+  <div class="p-5">
 
-  <form method="POST">
+    <h2>Create an Account</h2>
 
-    <!-- Cross Site Request Forgery: https://docs.djangoproject.com/en/3.2/ref/csrf/ -->
-    {% csrf_token %}
+    <form method="POST">
 
-    {{ form|crispy }}
+      <!-- Cross Site Request Forgery: https://docs.djangoproject.com/en/3.2/ref/csrf/ -->
+      {% csrf_token %}
 
-    <p>Already have an account? <a href="/login">Log In</a></p>
-    
-    <button type="submit">Register</button>
+      {{ form|crispy }}
 
-  </form>
+      <p>Already have an account? <a href="/login">Log In</a></p>
+      
+      <button type="submit" class="btn btn-success btn-lg">Register</button>
+
+    </form>
+
+  </div>
 
 {% endblock content %}
 
