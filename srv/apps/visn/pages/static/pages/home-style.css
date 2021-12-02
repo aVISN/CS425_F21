@@ -31,17 +31,18 @@ div
     width:85%;
     margin-bottom:10px;
 }
-#title
+.title
 {
-    height: 75px;
-    padding-top: 14px;
+    height: 50px;
+    margin-top: 5px;
     text-align: center;
 
-    color:#fff;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    color:whitesmoke;
+/*    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; */
     background-color: rgb(16, 139, 98);
     border-bottom: 1px black solid;
     border-top: 1px black solid;
+/*    border-radius: 20px;*/
 }
 
 #logo
@@ -52,7 +53,8 @@ div
     height:auto;
     color:#000;
     background-color: #fff;
-    border: 1px #000 solid;
+    border-right: 1px #000 solid;
+    border-left: 1px #000 solid;
 }
 #top-views
 {
