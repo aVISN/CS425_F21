@@ -1,5 +1,247 @@
 # This is where Django projects are stored
 
+# File sharing page development process 
+
+Example of development steps from simple page to function based views to generic class-based views that uses models and forms. 
+
+## 1. Setup basic view, url, template: 
+
+Starting with a function based view lets us figure out the logic. We'll eventually turn this into a generic class-based view. Also setup media directory for uploaded files and configured to serve with nginx. 
+
+vim pages/views.py: 
+```
+from django.core.files.storage import FileSystemStorage
+
+#class FilesPageView(TemplateView):
+#    template_name = 'files.html'
+
+def files(request):
+    context = {}
+    if request.method == 'POST':
+        uploaded_file = request.FILES['upload']
+        f = FileSystemStorage()
+        name = f.save(uploaded_file.name, uploaded_file)
+        context['url'] = f.url(name)
+    return render(request, 'files.html', context)
+```
+
+then we need to update urls.py:
+```
+from .views import ... #HomePageView, FilesPageView, (commented out FilesPageView for now)
+from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+
+# update path view: 
+#    path('files/', FilesPageView.as_view(), name='files'),
+    path('files/', views.files, name='files'),
+
+# after urlpatterns list, add: 
+# for use in development only, need to update for production:
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+```
+
+update files.html: 
+```
+<!-- removed div style -->
+<div class="col-md-10"> 
+  
+  <h2>**List of Files Webpage**</h2>
+  
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="upload">
+    <button type="submit">Upload file</button>
+  </form>
+  
+  {% if url %}
+    <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>
+  {% endif %}
+
+</div> 
+```
+
+files uploaded by users are called "media" by Django, set media root/url:
+vim visn/visn/settings.py
+```
+MEDIA_URL = '/files/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+```
+
+update nginx to serve media files
+vim /etc/nginx/sites-available/default:
+```
+	location /media/ { 
+            alias /srv/apps/visn/media/; 
+        } 
+```
+---
+## 2. Adding a model and form, create upload page / file list page
+
+Create a model to store file infomation in the database: 
+pages/models.py
+```
+from django.db import models
+
+# Create your models here.
+
+class Upload(models.Model):
+    description = models.CharField(max_length=100)
+    comments = models.TextField(blank=True)
+    filename = models.FileField(upload_to='')
+
+    def __str__(self):
+        return self.description
+```
+
+After changing models need to makemigrations and migrate to db:
+```
+./manage.py makemigrations
+./manage.py migrate
+```
+
+Create a form for users to upload files / store info to model in db: 
+/pages/forms.py
+```
+from django import forms
+
+from .models import Upload
+
+class UploadForm(forms.ModelForm):
+    class Meta: 
+        model = Upload
+        fields = ('description', 'comments', 'filename')
+```
+
+Update views to use model and form:
+pages/views.py
+```
+from django.shortcuts import render, redirect
+...
+
+from .forms import UploadForm
+from .models import Upload
+
+...
+
+def files(request):
+    files = Upload.objects.all()
+    return render(request, 'files.html', {
+        'files': files
+    })
+
+def upload(request):
+    if request.method == 'POST':
+        upload = UploadForm(request.POST, request.FILES)
+        if upload.is_valid():
+            upload.save()
+            return redirect('files')
+    else: 
+        upload = UploadForm()
+    return render(request, 'upload.html', {
+        'form': upload
+    })
+```
+
+Update files page ( -> list of files)
+pages/templates/files.html: 
+```
+  <h2>**List of Files Webpage**</h2>
+
+  <p>
+    <a href="{% url 'upload' %}" class="btn btn-success">Upload file</a>
+  </p>
+
+
+  <table class="table table-hover table-responsive p-4">
+    <thead>
+      <tr>
+        <th style="width: 30%">Description</th>
+        <th style="width: 40%">Comments</th>
+        <th style="width: 5%">Download</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for file in files %}
+        <tr>
+          <td>{{ file.description }}</td>
+          <td>{{ file.comments }}</td>
+          <td>
+            <a href="{{ file.filename.url }}" class="btn btn-success" target="_blank">
+              {{ file.filename }}
+            </a>
+          </td>
+        <tr>
+      {% endfor %}
+    </tbody>
+  </table>
+```
+
+Create upload form page: 
+pages/templates/upload.html
+```
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+{% include 'header.html' %}
+{% include 'sidebar.html' %}
+
+<div class="col-md-10 p-5" >
+  
+  <h2>**Upload**</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit">Upload file</button>
+  </form>
+
+</div> 
+
+{% endblock content %}
+```
+
+Add upload page to urls
+pages/urls.py
+```
+    path('files/upload/', views.upload, name='upload'), 
+```
+
+---
+## 3. Update from function based views to generic class based views
+
+Update function based to generic class based views: 
+pages/views.py
+```    
+from django.views.generic import TemplateView, CreateView, ListView
+...
+
+class FilesPageView(ListView):
+    model = Upload
+    template_name = 'files.html'
+    context_object_name = 'files'
+
+class UploadFilesView(CreateView):
+    model = Upload
+    form_class = UploadForm
+    success_url = reverse_lazy('files')
+    template_name = 'upload.html'
+```
+
+update urls to use new views
+pages/urls.py
+```
+from .views import AboutPageView, ProjectsPageView, ChatPageView, RegisterView, DashboardView, FilesPageView, UploadFilesView #HomePageView, 
+...
+
+    path('files/', FilesPageView.as_view(), name='files'),
+    path('files/upload/', UploadFilesView.as_view(), name='upload'),
+```
+
+---
+
 # Note: project setup still listed below, but adding notes from discord 
 on current general use tips here (since installation/setup already configured in provided VM)
 
