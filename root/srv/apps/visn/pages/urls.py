@@ -18,6 +18,7 @@ urlpatterns = [
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
     path('files/', FilesPageView.as_view(), name='files'),
     path('files/upload/', UploadFilesView.as_view(), name='upload'),
+    path('tools/', ToolsPageView.as_view(), name='tools'),
 ]
 
 
