@@ -32,6 +32,9 @@ class ProjectsPageView(TemplateView):
 class ChatPageView(TemplateView):
     template_name = 'chat.html'
 
+class ToolsPageView(TemplateView):
+    template_name = 'tools.html'
+
 class FilesPageView(ListView):
     model = Upload
     template_name = 'files.html'
