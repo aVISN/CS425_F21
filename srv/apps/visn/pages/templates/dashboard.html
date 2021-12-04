@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+   <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock styles %}
+
 {% block content %}
 {% include 'header.html' %}
 {% include 'sidebar.html' %}
