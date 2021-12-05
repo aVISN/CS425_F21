@@ -4,29 +4,6 @@
 {% block content %}
 {% include 'header.html' %}
 {% include 'sidebar.html' %}
-
-<div id="header" class="row gx-0">
-        <div class="title col-sm-4"></div>
-        <div class="col-sm-4">
-           <div class=" title row gx-0">
-              <!--<h1 style="text-transform:capitalize;"><script>document.write({{request.path}}.source)</script></h1>-->
-           </div>    
-        </div>
-        <div class=" title col-sm-4"></div>
-     </div>
-
-     <div id="icons" class="col-sm-2">
-        <div id="logo" class="container img-fluid row align-item-center gx-0"><img src="logo.png" /></div>
-            <div id="U-name" class="icons row gx-0" style="text-transform:capitalize;">Welcome {{ user.username }}!</div>
-            <a href="{% url 'dashboard' %}"><div class="icons row gx-0">Home</div></a>
-            <a href="{% url 'projects' %}"><div class="icons row gx-0">Projects</div></a>
-            <a href="{% url 'files' %}"><div class="icons row gx-0">Files</div></a>
-            <a href="{% url 'chat' %}"><div class="icons row gx-0">Chat</div></a>
-            <div class="icons row gx-0">Network</div>
-            <div class="icons row gx-0">Tools</div>
-            <div id="search" class="icons row gx-0">Search <input></input></div>
-     </div>
-
      <div class="col-md-10" style="text-align:center;padding-top:10px;">
          <div class="search-wrapper">
             <form class="search" action="#">
