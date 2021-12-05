@@ -1,0 +1,88 @@
+
+#top-views
+{
+    padding-top:20px;
+    /* padding-left:10%; */
+    margin-left:10%;
+    
+}
+
+#projects
+{
+    margin-top:10px;
+
+    border-radius: 5px;
+    border: 1px black solid;
+    
+}
+.projects-view-bar
+{
+    padding-top:5px;
+    padding-left:5%;
+    height:60px;
+    border-bottom: 1px #000 solid;
+}
+.project
+{
+    height:147px;
+    padding-top: 10px;
+    text-align: center;
+}
+.project-container
+{
+    height: 110px;
+    width: 75%;
+    margin: 0 auto;
+    border: 1px black solid;
+}
+#chat
+{
+    margin-top: 10px;
+
+    border-radius: 5px;
+    /* border: 1px black solid; */
+}
+.chat-view-bar
+{
+    height:60px;
+    justify-content: center;
+
+    border: 1px #000 solid;
+    border-radius: 5px;
+}
+.message
+{
+    border: 1px #000 solid;
+    border-radius: 5px;
+    justify-content: center;
+    height:42px;
+}
+#bottom-view
+{
+    margin-top:40px;
+}
+.files-view-bar
+{
+    padding-left:20px;
+    height: 60px;
+    /* border-bottom: 1px black solid; */
+}
+#files
+{
+    margin-top: 10px;
+    margin: 0 auto;
+
+    padding-bottom:3px;
+
+    border-radius: 5px;
+    border: 1px black solid;
+
+    width:35%;
+}
+.file
+{
+    margin: 0 3px;
+    padding-left:20px;
+    border: 1px black solid;
+
+}

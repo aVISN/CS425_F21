@@ -1,10 +1,128 @@
 {% extends 'base.html' %}
+{% load static %}
 
+{% block styles %}
+   <link rel="stylesheet" href="{% static 'css/chat.css' %}">
+{% endblock styles %}
 
 {% block content %}
 {% include 'header.html' %}
 {% include 'sidebar.html' %}
+     <div class="col-md-10" style="text-align:center;padding-top:10px;">
+         <div class="search-wrapper">
+            <form class="search" action="#">
+               <input class="search-inp"  type="text"><button class="search-btn">
+                  <i class="fas fa-search"></i>
+               </button>
+            </form>
+         </div>
+         <article class="article">
+            <ul class="first">
+                <li class= "Recent-chat">
+                   Recent chats 
+                   <div>
+                      <span class="rchat">
+                         <a href="###">Message 1:</a>
+                         </span>
+                      <span class="rchat">
+                         <a href="###">Message 2:</a>
+                         </span>
+                      <span class="rchat">
+                         <a href="###">Message 3:</a>
+                         </span>
+                      <span class="rchat">
+                         <a href="###">Message 4:</a>
+                         </span>
+                      <span class="rchat">
+                         <a href="###">Message 5:</a>
+                         </span>
+                      <span class="rchat">
+                         <a href="###">Message 6:</a>
+                         </span>
+                   </div>
+                </li>
+                <li class="srol">
+                    <a href="###">Client 1 <span class="jia"> <a href="#GG">+</a></span></a>
+                    <span class="rchat">
+                     <a href="###">Message 1:</a>
+                     </span>
+                    <span class="rchat">
+                     <a href="###">Message 2:</a>
+                     </span>
+                     <span class="rchat">
+                        <a href="###">Message 3:</a>
+                        </span>
+                     <span class="rchat">
+                        <a href="###">Message 4:</a>
+                        </span>
+                     <span class="rchat">
+                        <a href="###">Message 5:</a>
+                        </span>
+                     <span class="rchat">
+                        <a href="###">Message 6:</a>
+                        </span>
+            
+                  </li>
+                <li class="srol">
+                    <a href="###">Client 2 <span class="jia"> <a href="#GG">+</a></span></a>
+                    <span class="rchat">
+                     <a href="###">Message 1:</a>
+                     </span>
+                    <span class="rchat">
+                     <a href="###">Message 2:</a>
+                     </span>
+                     <span class="rchat">
+                        <a href="###">Message 3:</a>
+                        </span>
+                     <span class="rchat">
+                        <a href="###">Message 4:</a>
+                        </span>
+                     <span class="rchat">
+                        <a href="###">Message 5:</a>
+                        </span>
+                     <span class="rchat">
+                        <a href="###">Message 6:</a>
+                        </span>
+                     
+                <li class="srol"> 
+                    <a href="###">Client 3<span class="jia"> <a href="#GG">+</a></span></a>
+                    <span class="rchat">
+                     <a href="###">Message 1:</a>
+                     </span>
+                    <span class="rchat">
+                     <a href="###">Message 2:</a>
+                     </span>
+                     <span class="rchat">
+                        <a href="###">Message 3:</a>
+                        </span>
+                     <span class="rchat">
+                        <a href="###">Message 4:</a>
+                        </span>
+                     <span class="rchat">
+                        <a href="###">Message 5:</a>
+                        </span>
+                     <span class="rchat">
+                        <a href="###">Message 6:</a>
+                        </span>
+                     
+                </li>
+                <li>
+                   Comments or Email
+                   <span class="comt">
+                     <a id="GG" href="#">Comment:</a>
+                     <div class="kuang">
+                        <form class="xie" action="#">
+                           <input class="zi"  type="text"><button class="anniu">
+                              <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                           </button>
+                        </form> 
+                     </div>
+                     </span>
+                  <span class="rchat">
+                     Email: <a href="https://mail.yahoo.com/">Gmail </a> Or<a href="https://mail.yahoo.com/"> Yahoo</a>
+                     </span>
 
+<<<<<<< HEAD
 <div class="col-md-10" style="text-align:center;padding-top:100px;"><h2>Chats</h2>
 <h3>Your most recent chats will be displayed at the top of this page</h3>
 <h5>Client 1</h5>
@@ -12,5 +130,13 @@
 <h5>Client 3</h5>
 <h5>Client 4</h5>
 </div>
+=======
+                </li>
+            </ul>
+        </article>
+     </div>
+
+   </div>
+>>>>>>> ec749403266be22a9a9955532470eafa6b4fb95a
 
 {% endblock content %}
