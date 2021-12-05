@@ -10,16 +10,19 @@ div
 
     color:#fff;
     background-color: #000;
-    margin-top: 1px;
+    align-content:center;
     /* border-radius: 5px; */
     /* border: 1px #fff solid; */
+}
+#icons a
+{
+    text-decoration:none;
 }
 #search
 {
     height:max-content;
     color:#fff;
     background-color: black;
-    margin-top: 1px;
     padding-left:5px;
     padding-bottom: 100%;
     /* text-align: left; */
@@ -79,80 +82,4 @@ div
     /* color:#000; */
     /* border: 1px black solid;   */
 }
-#projects
-{
-    margin-top:10px;
 
-    border-radius: 5px;
-    border: 1px black solid;
-}
-.projects-view-bar
-{
-    padding-top:5px;
-    padding-left:5%;
-    height:60px;
-    border-bottom: 1px #000 solid;
-}
-.project
-{
-    height:147px;
-    padding-top: 10px;
-    text-align: center;
-}
-.project-container
-{
-    height: 110px;
-    width: 75%;
-    margin: 0 auto;
-    border: 1px black solid;
-}
-#chat
-{
-    margin-top: 10px;
-
-    border-radius: 5px;
-    /* border: 1px black solid; */
-}
-.chat-view-bar
-{
-    height:60px;
-    justify-content: center;
-
-    border: 1px #000 solid;
-    border-radius: 5px;
-}
-.message
-{
-    border: 1px #000 solid;
-    border-radius: 5px;
-    justify-content: center;
-    height:42px;
-}
-#bottom-view
-{
-    margin-top:40px;
-}
-.files-view-bar
-{
-    padding-left:20px;
-    height: 60px;
-    /* border-bottom: 1px black solid; */
-}
-#files
-{
-    margin-top: 10px;
-    margin: 0 auto;
-
-    padding-bottom:3px;
-
-    border-radius: 5px;
-    border: 1px black solid;
-
-    width:35%;
-}
-.file
-{
-    margin: 0 3px;
-    padding-left:20px;
-    border: 1px black solid;
-}
