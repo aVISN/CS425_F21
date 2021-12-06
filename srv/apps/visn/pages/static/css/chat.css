@@ -1,7 +1,3 @@
-.search-wrapper{
-    background-color:slategray;
-}
-
 .search-wrapper .search-btn:hover{
     background-color: #f10215;
 }
@@ -12,7 +8,6 @@ article{
     height: 850px;
     padding: 1px 0;
     margin: 0 auto;
-    background-color:rgb(204,204,204);
 }
 
 article ul{
@@ -24,23 +19,22 @@ article ul{
 .first li{
     width: 800px;
     height: 100px;
-    background-color: #bfa;
     font-size: 30px;
     margin:15px 30px;
     text-align: center;
     overflow:scroll;
-   
-    
+    font-size: 20px;
+    border: 1px solid black;
 }
 
 .rchat{
     
     display:block;
     height:35px;
-    background-color: white;
     margin: 10px;
     font-size: 20px;
     text-align: left;
+    border: 1px solid black;
 }
 
 li a{
@@ -48,44 +42,43 @@ li a{
 }
 
 .first li:nth-child(1){
-    background-color:#bfa;
     width: 1000px;
-    height: 200px;
+    height: 150px;
 }
 
-
 .first li:nth-child(2){
-    background-color:pink;
-    height: 100px;
     width: 1000px;
+    height: 50px;
 }
 
 
 .first li:nth-child(3){
-    background-color:#bfa;
+    height: 100px;
+    width: 1000px;
+}
+
+
+.first li:nth-child(4){
     width:1000px;
     height: 100px;
 }
 
-.first li:nth-child(4){
+.first li:nth-child(5){
     width: 1000px;;
-    background-color:pink;
     height: 100px;
 }
 
 li a:hover{
-    background-color: red;
+    background-color:red;
 }
 
-.first li:nth-child(5){
-    background-color:#bfa;
+.first li:nth-child(6){
     width:1000px;
     height: 250px;
 }
 
 .comt{
     display:block;
-    background-color: white;
     width: 1000px;
     height: 140px;
     margin: 10px;
@@ -101,10 +94,7 @@ li a:hover{
 }
 
 .anniu:hover{
-    background-color: red;
+    background-color:red;
 }
 
-.anniu{
-    background-color:darkgray;
-}
 
