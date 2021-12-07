@@ -10,84 +10,77 @@
 {% include 'sidebar.html' %}
 
          <div id="recent-views" class="col-md-10"> 
-            <div id="top-views" class="row gx-0">
-                <div id="left-view" class="col-md-5">
-                    <div id="projects" class="offset-1">
-                        <div class="projects-view-bar row gx-0">
-			    <h4>Example heading <span class="badge bg-secondary">+</span></h4>
-                        </div>
-                        <div class="row gx-0">
-                            <div class="project col-md-4">
-                                <div class="project-container">P1</div>
-                            </div>
-                            <div class="project col-md-4">
-                                <div class="project-container">P2</div>
-                            </div>
-                            <div class="project col-md-4">
-                                <div class="project-container">P3</div>
-                            </div>
-                        </div>
-                        <div class="row gx-0">
-                            <div class="project col-md-4">
-                                <div class="project-container">P4</div>
-                            </div>
-                            <div class="project col-md-4">
-                                <div class="project-container">P5</div>
-                            </div>
-                            <div class="project col-md-4">
-                                <div class="project-container">P6</div>
-                            </div>
-                        </div>   
-                    </div>
-                </div>
-             <!-- ********************************* -->
-            <div id="right-view" class="col-md-6">
-               <div id="chat" class="col-md-10 offset-1">
-             <div class="card" style="width: 18rem;">
-             <div class="card-header">Recent Chat</div>
-                <ul class="list-group list-group-flush">
-                   <li class="list-group-item">
-        	      <blockquote class="blockquote mb-0">
-      		 	   <p>Hopefully Short message</p>
-      		   	   <footer class="blockquote-footer">User Name <cite title="Source Title">Project Name</cite></footer>
-    		      </blockquote>
-		   </li>
-		   <li class="list-group-item">
-                      <blockquote class="blockquote mb-0">
-                           <p>Beginning of a really long message ...</p>
-                           <footer class="blockquote-footer">User Name <cite title="Source Title">Project Name</cite></footer>
-                      </blockquote>
-                   </li>
-		   <li class="list-group-item">
-                      <blockquote class="blockquote mb-0">
-                           <p>Another  message ...</p>
-                           <footer class="blockquote-footer">User Name <cite title="Source Title">Project Name</cite></footer>
-                      </blockquote>
-                   </li>
-		   <li class="list-group-item">
-                      <blockquote class="blockquote mb-0">
-                           <p>One More Message ...</p>
-                           <footer class="blockquote-footer">User Name <cite title="Source Title">Project Name</cite></footer>
-                      </blockquote>
-                   </li>
-                   
-                </ul>
-             </div>
-             <!-- ********************************* -->
-                    </div>
-                </div>
-            </div>
-            <div id="bottom-view" class="row gx-0">
-                <div id="files" class="col-md-10">
-                    <div class="files-view-bar row gx-0">
-                       <h4>Recent File <span class="badge bg-secondary offset-5">+</span></h4>
-                    </div>
-                    <div class="file row gx-0">File 1</div>
-                    <div class="file row gx-0">File 2</div>
-                    <div class="file row gx-0">File 3</div>
-                    <div class="file row gx-0">File 4</div>
-                    <div class="file row gx-0">File 5</div>
-                </div>
-            </div>
+            <!-- ********************************** -->
+	    <div class="dashboard-content pt-5 px-5">
+		<div class="dashboard-card">
+		    <h3 class="dashboard-card-title">
+		        Project 1
+		    </h3>
+		    <hr class="rounded">
+		    <h5>Deadline</h5>
+		    <span>1/1/2021</span>
+		    <hr class="rounded">
+		    <p>
+		        Project Discription
+		    </p>
+		    <hr class="rounded">
+		    <h5>Files</h5>
+		    <ul>
+		        <li>file 1</li>
+		        <li>file 2</li>
+		        <li>file 3</li>
+		    </ul>
+		</div>
+		<div class="dashboard-card">
+		    <h3 class="dashboard-card-title">
+		        Project 2
+		    </h3>
+		    <hr class="rounded">
+		    <h5>Deadline</h5>
+		    <span>1/1/2021</span>
+		    <hr class="rounded">
+		    <p>
+		        Project Discription
+		    </p>
+		    <hr class="rounded">
+		    <h5>Files</h5>
+		    <ul>
+		        <li>file 1</li>
+		        <li>file 2</li>
+		        <li>file 3</li>
+		    </ul>
+		</div>
+		<div class="dashboard-card">
+		    <h3 class="dashboard-card-title">
+		        Project 3
+		    </h3>
+		    <hr class="rounded">
+		    <h5>Deadline</h5>
+		    <span>1/1/2021</span>
+		    <hr class="rounded">
+		    <p>
+		        Project Discription
+		    </p>
+		    <hr class="rounded">
+		    <h5>Files</h5>
+		    <ul>
+		        <li>file 1</li>
+		        <li>file 2</li>
+		        <li>file 3</li>
+		    </ul>
+		</div>
+	    <!-- </div>
+	    <div class="dashboard-content pt-4 px-5"> -->
+		<div class="dashboard-card">
+		    <h2>Latest Message</h2>
+		</div>
+		<div class="dashboard-card">
+		    <h2>Latest Message</h2>
+		</div>
+		<div class="dashboard-card">
+		    <h2>Latest Message</h2>
+		</div>
+	    </div>
+	    <!-- ********************************** -->
          </div>
 {% endblock content %}
