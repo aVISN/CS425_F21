@@ -4,8 +4,8 @@
 # classy class-based views: https://ccbv.co.uk/
 
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView, CreateView, ListView
-from django.contrib.auth.forms import UserCreationForm
+from django.views.generic import TemplateView, CreateView, ListView, FormView
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.urls import reverse_lazy
 from django.core.files.storage import FileSystemStorage
 from .forms import UploadForm
@@ -31,6 +31,15 @@ class ProjectsPageView(TemplateView):
     
 class ChatPageView(TemplateView):
     template_name = 'chat.html'
+
+class ToolsPageView(FormView):
+    form_class = PasswordChangeForm
+    success_url = reverse_lazy('tools')
+    template_name = 'tools.html'
+    def get_form_kwargs(self):
+        kwargs = super(ToolsPageView, self).get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
 
 class FilesPageView(ListView):
     model = Upload

@@ -1,0 +1,158 @@
+div
+{
+    /* border: dotted #09a9d1 1px; */
+}
+.icons
+{
+    height: 60px;
+    padding-top: 15%;
+    justify-content: center;
+
+    color:#fff;
+    background-color: #000;
+    margin-top: 1px;
+    /* border-radius: 5px; */
+    /* border: 1px #fff solid; */
+}
+#search
+{
+    height:max-content;
+    color:#fff;
+    background-color: black;
+    margin-top: 1px;
+    padding-left:5px;
+    padding-bottom: 100%;
+    /* text-align: left; */
+    justify-content: left;
+}
+#search input
+{
+    margin:10px auto;
+    width:85%;
+    margin-bottom:10px;
+}
+.title
+{
+    height: 50px;
+    margin-top: 5px;
+    text-align: center;
+
+    color:whitesmoke;
+/*    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; */
+    background-color: rgb(16, 139, 98);
+    border-bottom: 1px black solid;
+    border-top: 1px black solid;
+/*    border-radius: 20px;*/
+}
+
+#logo
+{
+    justify-content: center;
+
+    max-width:100%;
+    height:auto;
+    color:#000;
+    background-color: #fff;
+    border-right: 1px #000 solid;
+    border-left: 1px #000 solid;
+}
+#top-views
+{
+    padding-top:20px;
+    /* padding-left:10%; */
+    margin-left:10%;
+}
+#U-name
+{
+    justify-content: center;
+
+    background-color: rgb(16, 139, 98);
+    height:auto;
+    padding-top:1px;
+    /* margin-top: 2px; */
+    /* border: 1px #000 solid; */
+}
+
+.icons:hover
+{
+    background-color: rgb(37, 37, 37);
+    /* color:#000; */
+    /* border: 1px black solid;   */
+}
+#projects
+{
+    margin-top:10px;
+
+    border-radius: 5px;
+    border: 1px black solid;
+}
+.projects-view-bar
+{
+    padding-top:5px;
+    padding-left:5%;
+    height:60px;
+    border-bottom: 1px #000 solid;
+}
+.project
+{
+    height:147px;
+    padding-top: 10px;
+    text-align: center;
+}
+.project-container
+{
+    height: 110px;
+    width: 75%;
+    margin: 0 auto;
+    border: 1px black solid;
+}
+#chat
+{
+    margin-top: 10px;
+
+    border-radius: 5px;
+    /* border: 1px black solid; */
+}
+.chat-view-bar
+{
+    height:60px;
+    justify-content: center;
+
+    border: 1px #000 solid;
+    border-radius: 5px;
+}
+.message
+{
+    border: 1px #000 solid;
+    border-radius: 5px;
+    justify-content: center;
+    height:42px;
+}
+#bottom-view
+{
+    margin-top:40px;
+}
+.files-view-bar
+{
+    padding-left:20px;
+    height: 60px;
+    /* border-bottom: 1px black solid; */
+}
+#files
+{
+    margin-top: 10px;
+    margin: 0 auto;
+
+    padding-bottom:3px;
+
+    border-radius: 5px;
+    border: 1px black solid;
+
+    width:35%;
+}
+.file
+{
+    margin: 0 3px;
+    padding-left:20px;
+    border: 1px black solid;
+}

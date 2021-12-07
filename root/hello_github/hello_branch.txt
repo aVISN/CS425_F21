@@ -1,1 +1,6 @@
+<<<<<<< HEAD
+test
+test 2
+=======
 File to test branching in git/Github.
+>>>>>>> 20db542ab4b87a75259e7b873594182359283536
