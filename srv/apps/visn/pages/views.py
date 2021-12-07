@@ -32,6 +32,9 @@ class ProjectsPageView(TemplateView):
 class ChatPageView(TemplateView):
     template_name = 'chat.html'
 
+class NetworkPageView(TemplateView):
+    template_name = 'network.html'
+
 class ToolsPageView(FormView):
     form_class = PasswordChangeForm
     success_url = reverse_lazy('tools')
