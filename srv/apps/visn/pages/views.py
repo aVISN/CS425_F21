@@ -35,12 +35,15 @@ class ChatPageView(TemplateView):
 class NetworkPageView(TemplateView):
     template_name = 'network.html'
 
-class ToolsPageView(FormView):
+class ToolsPageView(TemplateView):
+    template_name = 'tools.html'
+
+class PasswordChangePageView(FormView):
     form_class = PasswordChangeForm
     success_url = reverse_lazy('tools')
-    template_name = 'tools.html'
+    template_name = 'registration/password_change.html'
     def get_form_kwargs(self):
-        kwargs = super(ToolsPageView, self).get_form_kwargs()
+        kwargs = super(PasswordChangePageView, self).get_form_kwargs()
         kwargs['user'] = self.request.user
         return kwargs
 
