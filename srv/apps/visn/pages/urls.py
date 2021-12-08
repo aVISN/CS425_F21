@@ -1,7 +1,7 @@
 # docs: https://docs.djangoproject.com/en/3.2/topics/http/urls/
 
 from django.urls import path, include
-from .views import ProjectsPageView, ChatPageView, RegisterView, DashboardView, FilesPageView, ToolsPageView, Projectview,  UploadFilesView #HomePageView, AboutPageView, 
+from .views import ProjectsPageView, ChatPageView, RegisterView, DashboardView, NetworkPageView FilesPageView, ToolsPageView, Projectview,  UploadFilesView #HomePageView, AboutPageView, 
 from . import views
 from django.contrib.auth import views as auth_views
 from django.conf import settings
