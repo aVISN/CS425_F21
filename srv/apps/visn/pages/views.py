@@ -28,6 +28,8 @@ class DashboardView(TemplateView):
     
 class ProjectsPageView(TemplateView):
     template_name = 'projects.html'
+    context_object_name = 'projects'
+
     
 class ChatPageView(TemplateView):
     template_name = 'chat.html'
@@ -51,3 +53,7 @@ class UploadFilesView(CreateView):
     form_class = UploadForm
     success_url = reverse_lazy('files')
     template_name = 'upload.html'
+class Projectview(TemplateView):
+    success_url = reverse_lazy('projects')
+    template_name = 'Projectview.html'
+    
