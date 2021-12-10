@@ -1,3 +1,5 @@
+# This file creates a mapping between requested urls and the view (function) that should be called
+
 # docs: https://docs.djangoproject.com/en/3.2/topics/http/urls/
 
 from django.urls import path, include

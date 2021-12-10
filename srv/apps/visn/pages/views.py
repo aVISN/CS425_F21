@@ -1,3 +1,8 @@
+# Views are basically functions that define how to respond to http requests. 
+# In django we can create function based views, class based views, or use 
+# generic class based views provided by Django.
+# We are generally using classes and importing generic views from django. 
+
 # docs:
 # function-based views: https://docs.djangoproject.com/en/3.2/topics/http/views/
 # class-based views: https://docs.djangoproject.com/en/3.2/ref/class-based-views/
@@ -50,7 +55,7 @@ class PasswordChangePageView(FormView):
 class FilesPageView(ListView):
     model = Upload
     template_name = 'files.html'
-    context_object_name = 'files'
+    context_object_name = 'files' 
 
 class UploadFilesView(CreateView):
     model = Upload

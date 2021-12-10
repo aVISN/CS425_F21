@@ -1,3 +1,5 @@
+# This is a service to start web server gateway interface automatically at boot
+
 [Unit] 
 Description=A VISN uwsgi applicaiton 
 After=network.target 

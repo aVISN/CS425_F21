@@ -1,3 +1,5 @@
+# This is the project's url mapping file
+
 """visn URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -18,5 +20,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+# here we are including the urls.py from our pages app
     path('', include('pages.urls')),
 ]

@@ -1,3 +1,5 @@
+# This is the main web server configuration file
+
 # docs: 
 # https://nginx.org/en/docs/
 # https://docs.nginx.com/nginx/admin-guide/
