@@ -1,8 +1,3 @@
-# Views are basically functions that define how to respond to http requests. 
-# In django we can create function based views, class based views, or use 
-# generic class based views provided by Django.
-# We are generally using classes and importing generic views from django. 
-
 # docs:
 # function-based views: https://docs.djangoproject.com/en/3.2/topics/http/views/
 # class-based views: https://docs.djangoproject.com/en/3.2/ref/class-based-views/
@@ -10,11 +5,10 @@
 
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, CreateView, ListView, FormView
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.views import PasswordChangeView
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.urls import reverse_lazy
 from django.core.files.storage import FileSystemStorage
-from .forms import UploadForm
+from .forms import UploadForm, CreateClientForm
 from .models import Upload
 
 #class HomePageView(TemplateView):
@@ -31,10 +25,6 @@ class RegisterView(CreateView):
 
 class DashboardView(TemplateView):
     template_name = 'dashboard.html'
-
-class EmailChangePageView(FormView):
-    success_url = reverse_lazy('tools')
-    template_name = 'registration/change_email.html'
     
 class ProjectsPageView(TemplateView):
     template_name = 'projects.html'
@@ -42,20 +32,19 @@ class ProjectsPageView(TemplateView):
 class ChatPageView(TemplateView):
     template_name = 'chat.html'
 
-class NetworkPageView(TemplateView):
-    template_name = 'network.html'
-
-class ToolsPageView(TemplateView):
-    template_name = 'tools.html'
-
-class PasswordChangePageView(PasswordChangeView):
+class ToolsPageView(FormView):
+    form_class = PasswordChangeForm
     success_url = reverse_lazy('tools')
-    template_name = 'registration/change_password.html'
+    template_name = 'tools.html'
+    def get_form_kwargs(self):
+        kwargs = super(ToolsPageView, self).get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
 
 class FilesPageView(ListView):
     model = Upload
     template_name = 'files.html'
-    context_object_name = 'files' 
+    context_object_name = 'files'
 
 class UploadFilesView(CreateView):
     model = Upload
