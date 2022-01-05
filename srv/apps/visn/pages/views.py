@@ -15,6 +15,7 @@ from django.urls import reverse_lazy
 from django.core.files.storage import FileSystemStorage
 from .forms import UploadForm
 from .models import Upload
+from django.contrib.auth.models import User
 
 #class HomePageView(TemplateView):
 #    template_name = 'home.html'
@@ -30,6 +31,11 @@ class RegisterView(CreateView):
 
 class DashboardView(TemplateView):
     template_name = 'dashboard.html'
+
+class ClientsPageView(ListView):
+    model = User
+    template_name = 'clients.html'
+    context_object_name = 'client_list'
     
 class ProjectsPageView(TemplateView):
     template_name = 'projects.html'

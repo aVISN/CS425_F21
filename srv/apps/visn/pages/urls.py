@@ -3,7 +3,7 @@
 # docs: https://docs.djangoproject.com/en/3.2/topics/http/urls/
 
 from django.urls import path, include
-from .views import ProjectsPageView, ChatPageView, RegisterView, DashboardView, NetworkPageView, FilesPageView, PasswordChangePageView, ToolsPageView, UploadFilesView #HomePageView, AboutPageView,  
+from .views import ClientsPageView, ProjectsPageView, ChatPageView, RegisterView, DashboardView, NetworkPageView, FilesPageView, PasswordChangePageView, ToolsPageView, UploadFilesView #HomePageView, AboutPageView,  
 from . import views
 from django.contrib.auth import views as auth_views
 from django.conf import settings
@@ -14,6 +14,7 @@ urlpatterns = [
     path('', include('django.contrib.auth.urls')),
 #    path('home/', HomePageView.as_view(), name='home'),
 #    path('about/', AboutPageView.as_view(), name='about'),
+    path('clients/', ClientsPageView.as_view(), name='clients'),
     path('projects/', ProjectsPageView.as_view(), name='projects'),
     path('chat/', ChatPageView.as_view(), name='chat'),
     path('change_password', PasswordChangePageView.as_view(), name='password_change'),
