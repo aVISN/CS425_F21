@@ -14,7 +14,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 from django.core.files.storage import FileSystemStorage
-from .forms import UploadForm
+from .forms import UploadForm, EmailChangeForm, CreateClientLoginForm
 from .models import Upload
 
 #class HomePageView(TemplateView):
@@ -35,6 +35,12 @@ class DashboardView(TemplateView):
 class EmailChangePageView(FormView):
     success_url = reverse_lazy('tools')
     template_name = 'registration/change_email.html'
+    form_class = EmailChangeForm
+
+class CreateClientLoginPageView(FormView):
+    success_url = reverse_lazy('tools')
+    template_name = 'registration/create_client_login.html'
+    form_class = CreateClientLoginForm
     
 class ProjectsPageView(TemplateView):
     template_name = 'projects.html'
